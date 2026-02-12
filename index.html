@@ -1,16 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./index.css" />
-</head>
+  <body>
+    <h1>Working with the DOM tree, templates and anti-templates</h1>
 
-<body>
-  <script src="/index.js" type="module"></script>
-</body>
+    <!-- Element Access Pattern -->
+    <!-- <button id="myButton" class="myButton">myButton</button>
+  <button id="myButton2" class="myButton2">myButton 2</button> -->
 
+    <!-- Class definition pattern -->
+    <!-- <button id="myButton" class="myButton">myButton</button>
+  <button id="myButton2" class="myButton2">myButton 2</button> -->
+
+    <!-- Event delegation pattern -->
+    <!-- <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul> -->
+
+    <!-- DOM update pattern -->
+    <!-- <ul id="myList"></ul> -->
+
+    <!-- Web Workers -->
+    <h2>Web Worker Example</h2>
+    <button onclick="startWorker()">Start Worker</button>
+    <p id="result"></p>
+
+    <script>
+      function startWorker() {
+        if (typeof Worker !== "undefined") {
+          // Creating a web worker
+          const worker = new Worker("worker.js");
+
+          // Send a message to the web worker
+          worker.postMessage("Hello");
+
+          // Processing the message from the web worker
+          worker.onMessage = function (event) {
+            document.getElementById("result").innerHTML = event.data;
+          };
+        } else {
+          document.getElementById("result").innerHTML =
+            "Web Workers not supported!";
+        }
+      }
+    </script>
+
+    <script src="/index.js" type="module"></script>
+  </body>
 </html>
