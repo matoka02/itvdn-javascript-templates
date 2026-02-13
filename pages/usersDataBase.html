@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User DataBase</title>
+  <link rel="stylesheet" href="../styles/usersDataBase.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <a href="../index.html" class="back-btn">Go back</a>
+    </div>
+    <h1>User Table</h1>
+  </div>
+
+  <!-- Add/Edit User Form -->
+  <div class="form-container">
+    <h2 id="form-title">Add New User</h2>
+    <form id="userForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="1" max="120" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit" id="submitBtn" class="btn btn-primary">Add</button>
+        <button type="button" id="cancelBtn" class="btn btn-secondary hidden">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- User Table -->
+  <div class="table-container">
+    <h2>User List</h2>
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- Data will be inserted via JavaScript -->
+      </tbody>
+    </table>
+    <div id="emptyTableMessage" class="empty-message">The table is empty. Add the first user!</div>
+  </div>
+  </div>
+
+  <!-- Table row template -->
+  <template id="userRowTemplate">
+    <tr class="user-row">
+      <td class="user-id"></td>
+      <td class="user-name"></td>
+      <td class="user-age"></td>
+      <td class="user-email"></td>
+      <td class="user-city"></td>
+      <td class="actions">
+        <button class="btn-edit">Edit</button>
+        <button class="btn-delete">Delete</button>
+      </td>
+    </tr>
+  </template>
+  <script src="../scripts/UsersDataBaseModule.js" type="module"></script>
+</body>
+
+</html>
