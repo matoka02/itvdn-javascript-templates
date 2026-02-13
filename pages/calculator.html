@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculating Prime Numbers</title>
+  <link rel="stylesheet" href="../styles/calculator.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <a href="../index.html" class="back-btn">Go back</a>
+    </div>
+    <h1>Calculating Prime Numbers</h1>
+
+    <div class="description">
+      <p>This page uses a Web Worker to calculate all prime numbers from 2 to the entered number.</p>
+      <p>The Web Worker runs in a separate thread, so the interface remains interactive during calculations.</p>
+    </div>
+
+    <!-- Number Input Form -->
+    <div class="form-container">
+      <h2>Enter a Number</h2>
+      <form id="primeForm">
+        <div class="form-group">
+          <label for="numberInput">Enter the upper limit (maximum 100,000):</label>
+          <input type="number" id="numberInput" name="number" min="2" max="100000" value="100" required>
+          <small>The larger the number, the longer the calculation will take</small>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" id="startBtn" class="btn btn-primary">Start calculation</button>
+          <button type="button" id="cancelBtn" class="btn btn-secondary" disabled>Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator hidden">
+      <div class="spinner"></div>
+      <p>Calculating prime numbers... <span id="progress">0%</span></p>
+      <div class="progress-bar">
+        <div id="progressBar" class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-container">
+      <h2>Results</h2>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Execution time</h3>
+          <p id="executionTime">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Primes found</h3>
+          <p id="primeCount">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Last prime</h3>
+          <p id="lastPrime">-</p>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <h3>List of primes:</h3>
+        <div class="results-controls">
+          <button id="copyBtn" class="btn btn-small" disabled>Copy</button>
+          <button id="clearBtn" class="btn btn-small">Clear</button>
+        </div>
+      </div>
+
+      <div id="results" class="results">
+        <p class="placeholder">No results yet. Enter a number and start calculating.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/CalculatorModule.js" type="module"></script>
+</body>
+
+</html>
